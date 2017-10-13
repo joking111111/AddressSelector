@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="SelectTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/blue2D70BB</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabMode">scrollable</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/SelectTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/blue2D70BB</item>
+    </style>
+
+    <style name="SelectTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black191D21</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+</resources>
