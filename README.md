@@ -18,37 +18,37 @@ menu = BouncingMenu.make(view, "中国,北京,海淀区").show();
   TabController提供给adapter必要时调用controller的方法。当然，也可以抽取接口面向接口编程。  
   Path提供路径供外部网络获取数据。
 * finishSelect(String path, String id)：  
-  Path是最终路径，以逗号分割，可以作为历史选择保存起来。
+  Path是最终路径，以逗号分割，可以作为历史选择保存起来。  
   Id是叶子节点id，这需要跟后台开发配合了。
 ```
 menu.setOnControlListener(new TabController.OnControlListener() {
-            @Override
-            public void queryData(TabController tabController, String path) {
-                BaseRecyclerAdapter adapter;
-                if (TextUtils.isEmpty(path)) {
-                    adapter = NonGeoFenceAdapter.newInstance(tabController, "中国");
-                } else {
-                    switch (path.split(",").length) {
-                        case 1:
-                            adapter = NonGeoFenceAdapter.newInstance(tabController, "北京");
-                            break;
-                        case 2:
-                            adapter = NonGeoFenceAdapter.newInstance(tabController, "海淀区");
-                            break;
-                        default:
-                            adapter = GeoFenceAdapter.newInstance(tabController, "海南");
-                            break;
-                    }
+    @Override
+        public void queryData(TabController tabController, String path) {
+            BaseRecyclerAdapter adapter;
+            if (TextUtils.isEmpty(path)) {
+                adapter = NonGeoFenceAdapter.newInstance(tabController, "中国");
+            } else {
+                switch (path.split(",").length) {
+                    case 1:
+                        adapter = NonGeoFenceAdapter.newInstance(tabController, "北京");
+                        break;
+                    case 2:
+                        adapter = NonGeoFenceAdapter.newInstance(tabController, "海淀区");
+                        break;
+                    default:
+                        adapter = GeoFenceAdapter.newInstance(tabController, "海南");
+                        break;
                 }
+            }
                 
-                tabController.setAdapter(adapter);
-            }
+            tabController.setAdapter(adapter);
+        }
 
-            @Override
-            public void finishSelect(String path, String id) {
-                Toast.makeText(MainActivity.this, path, Toast.LENGTH_SHORT).show();
-            }
-        });
+        @Override
+        public void finishSelect(String path, String id) {
+            Toast.makeText(MainActivity.this, path, Toast.LENGTH_SHORT).show();
+        }
+    });
 ```
 
 ### 3.处理onBackPressed事件
