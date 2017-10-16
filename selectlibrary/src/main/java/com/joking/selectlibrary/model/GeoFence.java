@@ -1,4 +1,4 @@
-package com.joking.selectlibrary.adapter;
+package com.joking.selectlibrary.model;
 /*
  * GeoFence     2017-10-11
  * Copyright (c) 2017 JoKing All right reserved.

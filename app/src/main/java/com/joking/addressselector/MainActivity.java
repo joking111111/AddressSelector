@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.joking.selectlibrary.adapter.BaseRecyclerAdapter;
 import com.joking.selectlibrary.adapter.GeoFenceAdapter;
-import com.joking.selectlibrary.adapter.NonGeoFenceAdapter;
 import com.joking.selectlibrary.widget.BouncingMenu;
 import com.joking.selectlibrary.widget.TabController;
 
@@ -40,17 +39,17 @@ public class MainActivity extends AppCompatActivity {
             public void queryData(TabController tabController, String path) {
                 BaseRecyclerAdapter adapter;
                 if (TextUtils.isEmpty(path)) {
-                    adapter = NonGeoFenceAdapter.newInstance(tabController, "中国");
+                    adapter = GeoFenceAdapter.newInstance(tabController, "中国", false);
                 } else {
                     switch (path.split(",").length) {
                         case 1:
-                            adapter = NonGeoFenceAdapter.newInstance(tabController, "北京");
+                            adapter = GeoFenceAdapter.newInstance(tabController, "北京", false);
                             break;
                         case 2:
-                            adapter = NonGeoFenceAdapter.newInstance(tabController, "海淀区");
+                            adapter = GeoFenceAdapter.newInstance(tabController, "海淀区", false);
                             break;
                         default:
-                            adapter = GeoFenceAdapter.newInstance(tabController, "海南");
+                            adapter = GeoFenceAdapter.newInstance(tabController, "海南", true);
                             break;
                     }
                 }
@@ -61,12 +60,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void finishSelect(String path, String id) {
                 Toast.makeText(MainActivity.this, path, Toast.LENGTH_SHORT).show();
-                String[] str = path.split(",");
-                StringBuilder sb = new StringBuilder();
-                for (String s : str) {
-                    sb.append(s);
-                }
-                Log.d("ssss", "finishSelect: " + sb.toString());
                 Log.d("ssss", "finishSelect: " + path);
             }
         });
@@ -81,17 +74,17 @@ public class MainActivity extends AppCompatActivity {
             public void queryData(TabController tabController, String path) {
                 BaseRecyclerAdapter adapter;
                 if (TextUtils.isEmpty(path)) {
-                    adapter = NonGeoFenceAdapter.newInstance(tabController, "中国");
+                    adapter = GeoFenceAdapter.newInstance(tabController, "中国", false);
                 } else {
                     switch (path.split(",").length) {
                         case 1:
-                            adapter = NonGeoFenceAdapter.newInstance(tabController, "北京");
+                            adapter = GeoFenceAdapter.newInstance(tabController, "北京", false);
                             break;
                         case 2:
-                            adapter = NonGeoFenceAdapter.newInstance(tabController, "海淀区");
+                            adapter = GeoFenceAdapter.newInstance(tabController, "海淀区", false);
                             break;
                         default:
-                            adapter = GeoFenceAdapter.newInstance(tabController, "海南");
+                            adapter = GeoFenceAdapter.newInstance(tabController, "海南", true);
                             break;
                     }
                 }
@@ -102,12 +95,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void finishSelect(String path, String id) {
                 Toast.makeText(MainActivity.this, path, Toast.LENGTH_SHORT).show();
-                String[] str = path.split(",");
-                StringBuilder sb = new StringBuilder();
-                for (String s : str) {
-                    sb.append(s);
-                }
-                Log.d("ssss", "finishSelect: " + sb.toString());
                 Log.d("ssss", "finishSelect: " + path);
             }
         });
