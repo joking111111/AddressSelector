@@ -167,9 +167,13 @@ public class TabController {
         if (mAdapter != null) {
             mAdapter.recycle();
         }
+
         mAdapter = adapter;
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.scheduleLayoutAnimation();
+
+        if (mRecyclerView != null) {
+            mRecyclerView.setAdapter(mAdapter);
+            mRecyclerView.scheduleLayoutAnimation();
+        }
     }
 
     /**
