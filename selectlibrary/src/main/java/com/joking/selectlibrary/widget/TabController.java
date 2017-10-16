@@ -90,6 +90,10 @@ public class TabController {
      * @param path
      */
     public void requestData(String path) {
+        if (path == null) {
+            path = "";
+        }
+
         if (mOnControlListener != null) {
             String[] str = path.split(",");
             if (mTabLayout.getTabCount() == 0) {

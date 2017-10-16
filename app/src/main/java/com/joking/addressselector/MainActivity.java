@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void popUpMenu(View view) {
-        menu = BouncingMenu.make(view, "中国,北京,海淀区").show();
+        menu = BouncingMenu.make(view, null).show();
         menu.setOnControlListener(new TabController.OnControlListener() {
             @Override
             public void queryData(TabController tabController, String path) {
