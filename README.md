@@ -26,17 +26,17 @@ menu.setOnControlListener(new TabController.OnControlListener() {
         public void queryData(TabController tabController, String path) {
             BaseRecyclerAdapter adapter;
             if (TextUtils.isEmpty(path)) {
-                adapter = NonGeoFenceAdapter.newInstance(tabController, "中国");
+                adapter = GeoFenceAdapter.newInstance(tabController, "中国", false);
             } else {
                 switch (path.split(",").length) {
                     case 1:
-                        adapter = NonGeoFenceAdapter.newInstance(tabController, "北京");
+                        adapter = GeoFenceAdapter.newInstance(tabController, "北京", false);
                         break;
                     case 2:
-                        adapter = NonGeoFenceAdapter.newInstance(tabController, "海淀区");
+                        adapter = GeoFenceAdapter.newInstance(tabController, "海淀区", false);
                         break;
                     default:
-                        adapter = GeoFenceAdapter.newInstance(tabController, "海南");
+                        adapter = GeoFenceAdapter.newInstance(tabController, "海南", true);
                         break;
                 }
             }
