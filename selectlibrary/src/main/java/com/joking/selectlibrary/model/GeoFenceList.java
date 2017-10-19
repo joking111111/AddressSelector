@@ -4,9 +4,10 @@ package com.joking.selectlibrary.model;
  * Copyright (c) 2017 JoKing All right reserved.
  */
 
+import java.io.Serializable;
 import java.util.List;
 
-public class GeoFenceList {
+public class GeoFenceList implements Serializable {
 
     private int isGeoFence;//是否到达叶子节点
     private List<GeoFence> list;

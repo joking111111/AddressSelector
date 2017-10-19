@@ -4,7 +4,9 @@ package com.joking.selectlibrary.model;
  * Copyright (c) 2017 JoKing All right reserved.
  */
 
-public class GeoFence {
+import java.io.Serializable;
+
+public class GeoFence implements Serializable {
     private String name;
     private String id;
 

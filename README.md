@@ -59,6 +59,7 @@ menu.setOnControlListener(new TabController.OnControlListener() {
 ```
 
 ### 3.处理onBackPressed事件
+* 非必选，只是为了更好的用户体验。
 * 建议在activity使用menu，因为在Fragment没有onBackPressed方法。
 ```
 @Override
@@ -70,3 +71,8 @@ public void onBackPressed() {
     super.onBackPressed();
 }
 ```
+
+### 4.处理混淆
+* 由于本library没有引用gson之类的库，所以一旦配置混淆，那么json可能会解析失败。  
+请在主module的proguard配置以下代码，不要混淆本library。  
+`-keep public class com.joking.selectlibrary.**{*;}`
