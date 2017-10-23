@@ -54,7 +54,7 @@ public abstract class BaseRecyclerAdapter<T, V extends RecyclerView.ViewHolder> 
         notifyDataSetChanged();
     }
 
-    public void recycle(){
+    public void recycle() {
         mList.clear();
     }
 
