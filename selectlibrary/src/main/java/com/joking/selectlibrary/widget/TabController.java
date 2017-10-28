@@ -12,6 +12,10 @@ import android.view.View;
 import com.joking.selectlibrary.R;
 import com.joking.selectlibrary.adapter.BaseRecyclerAdapter;
 
+/**
+ * TabController
+ * 控制TabLayout与RecyclerView交互逻辑
+ */
 public class TabController {
     private String mTip;
     private TabLayout mTabLayout;
@@ -82,6 +86,7 @@ public class TabController {
         mRecyclerView = null;
         mEmptyView = null;
         mAdapter = null;
+        mOnControlListener = null;
     }
 
     /**

@@ -20,7 +20,10 @@ import android.widget.ImageView;
 
 import com.joking.selectlibrary.R;
 
-
+/**
+ * BouncingMenu
+ * 控制BouncingView展示与消失动画时机
+ */
 public class BouncingMenu {
     private ViewGroup mParentVG;
     private View rootView;

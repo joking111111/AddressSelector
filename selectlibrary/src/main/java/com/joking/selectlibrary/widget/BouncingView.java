@@ -1,5 +1,9 @@
 package com.joking.selectlibrary.widget;
 
+/*
+ * BouncingView     2017-10-11
+ * Copyright (c) 2017 JoKing All right reserved.
+ */
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,9 +16,12 @@ import android.view.View;
 
 import com.joking.selectlibrary.R;
 
-
+/**
+ * BouncingView
+ * 通过animator获取进度计算Arc Path的弹窗
+ */
 public class BouncingView extends View {
-    private Paint mPaint;
+    private Paint mPaint = new Paint();
     private int mArcHeight;//弧线的高度
     private int mMaxArcHeight;//弧线的最高高度
     private Status mStatus = Status.NONE;
@@ -41,7 +48,6 @@ public class BouncingView extends View {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(Color.WHITE);
@@ -66,7 +72,7 @@ public class BouncingView extends View {
                 public void run() {
                     animationListener.showContent();
                 }
-            },600);
+            }, 600);
         }
 
         mStatus = Status.STATUS_SMOOTH_UP;
