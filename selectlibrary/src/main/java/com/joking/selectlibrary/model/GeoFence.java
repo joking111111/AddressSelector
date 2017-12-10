@@ -4,9 +4,10 @@ package com.joking.selectlibrary.model;
  * Copyright (c) 2017 JoKing All right reserved.
  */
 
-import java.io.Serializable;
+import android.support.annotation.Keep;
 
-public class GeoFence implements Serializable {
+@Keep
+public class GeoFence {
     private String name;
     private String id;
 
