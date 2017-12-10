@@ -73,9 +73,14 @@ public void onBackPressed() {
 ```
 
 ### 4.处理混淆
-* 由于本library没有引用gson之类的库，所以一旦配置混淆，那么json可能会解析失败。  
-请在主module的proguard配置以下代码，不要混淆本library。  
-`-keep public class com.joking.selectlibrary.**{*;}`
+由于本library没有引用gson之类的库，所以一旦配置混淆，那么json解析为本库的数据类可能会失败。
+
+* 方法一：请在主module的proguard配置以下代码，不要混淆本library。
+  ```
+  -keep public class com.joking.selectlibrary.**{*;}
+  ```
+
+* 方法二：使用Keep注解。给本库的数据类加上@Keep注解（参见本库model包下的数据类）。
 
 ## License
 ```
