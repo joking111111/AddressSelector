@@ -30,32 +30,32 @@ menu = BouncingMenu.make(view, "中国,北京,海淀区").show();
 ```
 menu.setOnControlListener(new TabController.OnControlListener() {
     @Override
-        public void queryData(TabController tabController, String path) {
-            BaseRecyclerAdapter adapter;
-            if (TextUtils.isEmpty(path)) {
-                adapter = GeoFenceAdapter.newInstance(tabController, "中国", false);
-            } else {
-                switch (path.split(",").length) {
-                    case 1:
-                        adapter = GeoFenceAdapter.newInstance(tabController, "北京", false);
-                        break;
-                    case 2:
-                        adapter = GeoFenceAdapter.newInstance(tabController, "海淀区", false);
-                        break;
-                    default:
-                        adapter = GeoFenceAdapter.newInstance(tabController, "海南", true);
-                        break;
-                }
+    public void queryData(TabController tabController, String path) {
+        BaseRecyclerAdapter adapter;
+        if (TextUtils.isEmpty(path)) {
+            adapter = GeoFenceAdapter.newInstance(tabController, "中国", false);
+        } else {
+            switch (path.split(",").length) {
+                case 1:
+                    adapter = GeoFenceAdapter.newInstance(tabController, "北京", false);
+                    break;
+                case 2:
+                    adapter = GeoFenceAdapter.newInstance(tabController, "海淀区", false);
+                    break;
+                default:
+                    adapter = GeoFenceAdapter.newInstance(tabController, "海南", true);
+                    break;
             }
+        }
                 
-            tabController.setAdapter(adapter);
-        }
+        tabController.setAdapter(adapter);
+     }
 
-        @Override
-        public void finishSelect(String path, String id) {
-            Toast.makeText(MainActivity.this, path, Toast.LENGTH_SHORT).show();
-        }
-    });
+     @Override
+     public void finishSelect(String path, String id) {
+         Toast.makeText(MainActivity.this, path, Toast.LENGTH_SHORT).show();
+     }
+});
 ```
 
 ### 3.处理onBackPressed事件
